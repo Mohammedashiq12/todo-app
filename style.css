@@ -1,0 +1,282 @@
+/* =========================
+   Global Reset
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* =========================
+   Page Layout
+   ========================= */
+body {
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    #1e293b,
+    #020617 70%
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding-top: 80px;
+  color: #e5e7eb;
+}
+
+/* =========================
+   App Container
+   ========================= */
+.todo-container {
+  width: 100%;
+  max-width: 420px;
+
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(14px);
+
+  border-radius: 18px;
+  padding: 28px;
+
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(34, 211, 238, 0.25);
+}
+
+/* =========================
+   Title & Subtitle
+   ========================= */
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+
+  color: #f8fafc;
+  margin-bottom: 6px;
+}
+
+p {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* =========================
+   Task Counter
+   ========================= */
+#task-count {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #7dd3fc;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   Input Group
+   ========================= */
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+/* =========================
+   Input Field
+   ========================= */
+#todo-input {
+  flex: 1;
+  padding: 12px 14px;
+
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #020617;
+
+  color: #f8fafc;
+  font-size: 0.95rem;
+
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#todo-input::placeholder {
+  color: #64748b;
+}
+
+#todo-input:focus {
+  border-color: #22d3ee;
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25);
+}
+
+/* =========================
+   Add Button
+   ========================= */
+#add-btn {
+  padding: 12px 18px;
+
+  border-radius: 10px;
+  border: none;
+
+  background: linear-gradient(135deg, #22d3ee, #38bdf8);
+  color: #020617;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.35);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(34, 211, 238, 0.5);
+}
+
+#add-btn:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   Todo List
+   ========================= */
+#todo-list {
+  list-style: none;
+  margin-top: 6px;
+  padding: 0;
+
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* =========================
+   Todo Item
+   ========================= */
+#todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 16px;
+
+  background: rgba(2, 6, 23, 0.6);
+  color: #e5e7eb;
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+#todo-list li:hover {
+  background: rgba(2, 6, 23, 0.85);
+}
+
+#todo-list li:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+   Checkbox
+   ========================= */
+#todo-list input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #22d3ee;
+  cursor: pointer;
+}
+
+#todo-list input[type="checkbox"]:active {
+  transform: scale(0.9);
+}
+
+/* =========================
+   Todo Text
+   ========================= */
+#todo-list span {
+  flex: 1;
+  font-size: 0.95rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* =========================
+   Completed Todo
+   ========================= */
+#todo-list li.completed span {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* =========================
+   Delete Button
+   ========================= */
+#todo-list button {
+  background: none;
+  border: none;
+
+  color: #fca5a5;
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  opacity: 0.55;
+
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+#todo-list button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* =========================
+   Empty State
+   ========================= */
+#empty-state {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #64748b;
+  opacity: 0.8;
+}
+
+/* =========================
+   Entry Animation
+   ========================= */
+#todo-list li.new {
+  opacity: 0;
+  animation: appear 0.25s ease forwards;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 480px) {
+  body {
+    padding-top: 50px;
+  }
+
+  .todo-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+}

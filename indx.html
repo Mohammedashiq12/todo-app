@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="todo-container">
+    <h1>Simple Todo List</h1>
+    <p>Welcome to this todo list. Double-click a task to edit it.</p>
+
+    <div class="input-group">
+      <input
+        type="text"
+        id="todo-input"
+        placeholder="Enter a todo and press Add or Enter"
+      />
+      <button id="add-btn">Add</button>
+    </div>
+
+    <ul id="todo-list"></ul>
+    <p id="empty-state">No tasks yet. Add your first one 👀</p>
+    <p id="task-count">0 tasks</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
